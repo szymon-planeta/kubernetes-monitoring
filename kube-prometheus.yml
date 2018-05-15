@@ -2,7 +2,7 @@
 deployExporterNode: True
 
 # Grafana
-deployGrafana: False
+deployGrafana: True
 
 ## If true, create & use RBAC resources resp. Pod Security Policies
 ##
