@@ -332,6 +332,7 @@ prometheus:
       - grafana
       - prometheus
       - prometheus-operator
+      - predicted-cpu-exporter 
 
   ## ServiceMonitor CRDs to create & be scraped by the Prometheus instance.
   ## Ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/service-monitor.md

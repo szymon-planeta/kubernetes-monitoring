@@ -2,12 +2,15 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: predicted-cpu-exporter
-  labels: {app: predicted-cpu-exporter}
+  labels: 
+    app: predicted-cpu-exporter
   namespace: monitoring
 spec:
   replicas: 1
   template:
-    metadata: {labels: {app: predicted-cpu-exporter}}
+    metadata: 
+      labels: 
+        app: predicted-cpu-exporter
     spec:
       containers:
       - name: predicted-cpu-exporter
@@ -23,10 +26,13 @@ kind: Service
 metadata:
   name: predicted-cpu-exporter
   namespace: monitoring
+  labels: 
+    app: predicted-cpu-exporter
 spec:
   type: ClusterIP
   selector: 
     app: predicted-cpu-exporter
   ports:
-  - port: 9999
+  - name: metrics
+    port: 9999
     targetPort: 8080
