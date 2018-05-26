@@ -52,7 +52,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1526240930961,
+  "iteration": 1527331276539,
   "links": [],
   "panels": [
     {
@@ -99,11 +99,25 @@
           "refId": "A"
         },
         {
+          "expr": "prediction_cpu_usage",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "CPU predicted usage [milicores]",
+          "refId": "D"
+        },
+        {
           "expr": "sum(kube_pod_container_resource_limits_cpu_cores{namespace=\"$deployment_namespace\", pod=~\"$deployment_name.*\"})*1000",
           "format": "time_series",
           "intervalFactor": 1,
-          "legendFormat": "CPU limits and requests [milicores]",
+          "legendFormat": "CPU limits [milicores]",
           "refId": "B"
+        },
+        {
+          "expr": "sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"$deployment_namespace\", pod=~\"$deployment_name.*\"})*1000",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "CPU requests [milicores]",
+          "refId": "C"
         }
       ],
       "thresholds": [],
@@ -905,7 +919,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Deploymentssss",
+  "title": "CPU",
   "uid": "PUdDZAnmz",
-  "version": 7
+  "version": 1
 }
