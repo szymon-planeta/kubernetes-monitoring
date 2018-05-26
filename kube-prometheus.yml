@@ -332,7 +332,6 @@ prometheus:
       - grafana
       - prometheus
       - prometheus-operator
-      - predicted-cpu-exporter 
 
   ## ServiceMonitor CRDs to create & be scraped by the Prometheus instance.
   ## Ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/service-monitor.md
@@ -425,6 +424,12 @@ prometheus:
   #        requests:
   #          storage: 50Gi
   #    selector: {}
+  additionalScrapeConfigs:
+    - job_name: "prediction"
+      scrape_interval: 10s
+      static_configs:
+      - targets:
+        - "predicted-cpu-exporter:9999"
 
 # default rules are in templates/general.rules.yaml
 # prometheusRules: {}
