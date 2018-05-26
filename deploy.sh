@@ -16,7 +16,6 @@ go get -u github.com/rakyll/hey
 
 kubectl create -f ./metrics-server
 helm install coreos/kube-prometheus --name kube-prometheus --namespace monitoring -f kube-prometheus.yml --set grafana.service.type=NodePort
+kubectl create -f ./predicted-cpu-usage
 
 git clone https://github.com/stefanprodan/k8s-prom-hpa.git && cd k8s-prom-hpa && kubectl create -f ./podinfo/podinfo-svc.yaml,./podinfo/podinfo-dep.yaml && kubectl create -f ./podinfo/podinfo-hpa.yaml
-
-kubectl create -f predicted-cpu-exporter.yml
