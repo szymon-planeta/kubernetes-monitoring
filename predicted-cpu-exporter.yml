@@ -12,9 +12,10 @@ spec:
       containers:
       - name: predicted-cpu-exporter
         image: docker.io/cptplaneta/predicted-cpu-exporter:latest 
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        args: ["--listen-address=:8080", "--prometheus-url=http://kube-prometheus-prometheus:9090"]
 
 ---
 apiVersion: v1
@@ -25,7 +26,7 @@ metadata:
 spec:
   type: ClusterIP
   selector: 
-    app: tracking
+    app: predicted-cpu-exporter
   ports:
   - port: 9999
     targetPort: 8080
