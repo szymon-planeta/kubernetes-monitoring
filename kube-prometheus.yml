@@ -633,7 +633,7 @@ grafana:
           "gnetId": null,
           "graphTooltip": 1,
           "id": null,
-          "iteration": 1527331276539,
+          "iteration": 1528025111941,
           "links": [],
           "panels": [
             {
@@ -738,6 +738,107 @@ grafana:
               ]
             },
             {
+              "aliasColors": {},
+              "bars": false,
+              "dashLength": 10,
+              "dashes": false,
+              "datasource": "${DS_PROMETHEUS}",
+              "fill": 1,
+              "gridPos": {
+                "h": 7,
+                "w": 24,
+                "x": 0,
+                "y": 9
+              },
+              "id": 13,
+              "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+              },
+              "lines": true,
+              "linewidth": 1,
+              "links": [],
+              "nullPointMode": "null",
+              "percentage": false,
+              "pointradius": 5,
+              "points": false,
+              "renderer": "flot",
+              "seriesOverrides": [],
+              "spaceLength": 10,
+              "stack": false,
+              "steppedLine": false,
+              "targets": [
+                {
+                  "expr": "(sum(rate(container_cpu_usage_seconds_total{namespace=\"default\",pod_name=~\"podinfo.*\"}[1m]))) / (sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"default\", pod=~\"podinfo.*\"}))",
+                  "format": "time_series",
+                  "intervalFactor": 1,
+                  "legendFormat": "Current CPU utilization",
+                  "refId": "A"
+                },
+                {
+                  "expr": "prediction_cpu_usage_percent",
+                  "format": "time_series",
+                  "intervalFactor": 1,
+                  "legendFormat": "Predicted CPU utilization",
+                  "refId": "B"
+                },
+                {
+                  "expr": "70",
+                  "format": "time_series",
+                  "intervalFactor": 1,
+                  "legendFormat": "Desired usage",
+                  "refId": "C"
+                },
+                {
+                  "expr": "100",
+                  "format": "time_series",
+                  "intervalFactor": 1,
+                  "legendFormat": "Current requests",
+                  "refId": "D"
+                }
+              ],
+              "thresholds": [],
+              "timeFrom": null,
+              "timeShift": null,
+              "title": "Panel Title",
+              "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+              },
+              "type": "graph",
+              "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+              },
+              "yaxes": [
+                {
+                  "format": "short",
+                  "label": "CPU utilization [%]",
+                  "logBase": 1,
+                  "max": null,
+                  "min": null,
+                  "show": true
+                },
+                {
+                  "format": "short",
+                  "label": null,
+                  "logBase": 1,
+                  "max": null,
+                  "min": null,
+                  "show": true
+                }
+              ]
+            },
+            {
               "cacheTimeout": null,
               "colorBackground": false,
               "colorValue": false,
@@ -760,7 +861,7 @@ grafana:
                 "h": 5,
                 "w": 8,
                 "x": 0,
-                "y": 9
+                "y": 16
               },
               "id": 8,
               "interval": null,
@@ -841,7 +942,7 @@ grafana:
                 "h": 5,
                 "w": 8,
                 "x": 8,
-                "y": 9
+                "y": 16
               },
               "id": 9,
               "interval": null,
@@ -922,7 +1023,7 @@ grafana:
                 "h": 5,
                 "w": 8,
                 "x": 16,
-                "y": 9
+                "y": 16
               },
               "id": 7,
               "interval": null,
@@ -1003,7 +1104,7 @@ grafana:
                 "h": 3,
                 "w": 6,
                 "x": 0,
-                "y": 14
+                "y": 21
               },
               "id": 5,
               "interval": null,
@@ -1085,7 +1186,7 @@ grafana:
                 "h": 3,
                 "w": 6,
                 "x": 6,
-                "y": 14
+                "y": 21
               },
               "id": 6,
               "interval": null,
@@ -1166,7 +1267,7 @@ grafana:
                 "h": 3,
                 "w": 6,
                 "x": 12,
-                "y": 14
+                "y": 21
               },
               "id": 3,
               "interval": null,
@@ -1247,7 +1348,7 @@ grafana:
                 "h": 3,
                 "w": 6,
                 "x": 18,
-                "y": 14
+                "y": 21
               },
               "id": 2,
               "interval": null,
@@ -1322,7 +1423,7 @@ grafana:
                 "h": 9,
                 "w": 24,
                 "x": 0,
-                "y": 17
+                "y": 24
               },
               "id": 1,
               "isNew": true,
