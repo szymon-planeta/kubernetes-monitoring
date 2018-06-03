@@ -19,7 +19,8 @@ helm install coreos/kube-prometheus --name kube-prometheus --namespace monitorin
 kubectl create -f ./predicted-cpu-usage
 kubectl create -f custom-metrics.yml
 
-pushd .
-git clone https://github.com/stefanprodan/k8s-prom-hpa.git && cd k8s-prom-hpa && kubectl create -f ./podinfo/podinfo-svc.yaml,./podinfo/podinfo-dep.yaml 
-popd
+kubectl run podinfo --image=k8s.gcr.io/hpa-example --requests=cpu=200m --limits=cpu=400m --expose --port=80
+#pushd .
+#git clone https://github.com/stefanprodan/k8s-prom-hpa.git && cd k8s-prom-hpa && kubectl create -f ./podinfo/podinfo-svc.yaml,./podinfo/podinfo-dep.yaml 
+#popd
 kubectl create -f ./podinfo-hpa.yml
