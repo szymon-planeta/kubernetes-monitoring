@@ -774,7 +774,7 @@ grafana:
               "steppedLine": false,
               "targets": [
                 {
-                  "expr": "(sum(rate(container_cpu_usage_seconds_total{namespace=\"default\",pod_name=~\"podinfo.*\"}[1m]))) / (sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"default\", pod=~\"podinfo.*\"}))",
+                  "expr": "(sum(rate(container_cpu_usage_seconds_total{namespace=\"default\",pod_name=~\"podinfo.*\"}[1m]))) / (sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"default\", pod=~\"podinfo.*\"}))*100",
                   "format": "time_series",
                   "intervalFactor": 1,
                   "legendFormat": "Current CPU utilization",
