@@ -19,4 +19,7 @@ helm install coreos/kube-prometheus --name kube-prometheus --namespace monitorin
 kubectl create -f ./predicted-cpu-usage
 kubectl create -f custom-metrics.yml
 
-git clone https://github.com/stefanprodan/k8s-prom-hpa.git && cd k8s-prom-hpa && kubectl create -f ./podinfo/podinfo-svc.yaml,./podinfo/podinfo-dep.yaml && kubectl create -f ./podinfo-hpa.yaml
+pushd .
+git clone https://github.com/stefanprodan/k8s-prom-hpa.git && cd k8s-prom-hpa && kubectl create -f ./podinfo/podinfo-svc.yaml,./podinfo/podinfo-dep.yaml 
+popd
+kubectl create -f ./podinfo-hpa.yaml
