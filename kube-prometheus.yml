@@ -667,11 +667,25 @@ grafana:
                 "steppedLine": false,
                 "targets": [
                   {
+                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"$deployment_namespace\", pod=~\"$deployment_name.*\"})*1000",
+                    "format": "time_series",
+                    "intervalFactor": 1,
+                    "legendFormat": "CPU requests",
+                    "refId": "A"
+                  },
+                  {
+                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"$deployment_namespace\", pod=~\"$deployment_name.*\"})*700",
+                    "format": "time_series",
+                    "intervalFactor": 1,
+                    "legendFormat": "Desired CPU utilization",
+                    "refId": "B"
+                  },
+                  {
                     "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"$deployment_namespace\",pod_name=~\"$deployment_name.*\"}[1m]))*1000",
                     "format": "time_series",
-                    "intervalFactor": 2,
+                    "intervalFactor": 1,
                     "legendFormat": "Current CPU utilization",
-                    "refId": "A"
+                    "refId": "C"
                   },
                   {
                     "expr": "prediction_cpu_usage",
@@ -679,26 +693,12 @@ grafana:
                     "intervalFactor": 1,
                     "legendFormat": "Predicted CPU utilization",
                     "refId": "D"
-                  },
-                  {
-                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"$deployment_namespace\", pod=~\"$deployment_name.*\"})*1000",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "CPU requests",
-                    "refId": "C"
-                  },
-                  {
-                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"$deployment_namespace\", pod=~\"$deployment_name.*\"})*700",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "Desired CPU utilization",
-                    "refId": "E"
                   }
                 ],
                 "thresholds": [],
                 "timeFrom": null,
                 "timeShift": null,
-                "title": "CPU Usage",
+                "title": "CPU Usage [milicores]",
                 "tooltip": {
                   "shared": true,
                   "sort": 0,
@@ -768,38 +768,38 @@ grafana:
                 "steppedLine": false,
                 "targets": [
                   {
-                    "expr": "(sum(rate(container_cpu_usage_seconds_total{namespace=\"default\",pod_name=~\"podinfo.*\"}[1m]))) / (sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"default\", pod=~\"podinfo.*\"}))*100",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "Current CPU utilization",
-                    "refId": "A"
-                  },
-                  {
-                    "expr": "prediction_cpu_usage_percent",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "Predicted CPU utilization",
-                    "refId": "B"
-                  },
-                  {
                     "expr": "100",
                     "format": "time_series",
                     "intervalFactor": 1,
                     "legendFormat": "CPU requests",
-                    "refId": "D"
+                    "refId": "A"
                   },
                   {
                     "expr": "70",
                     "format": "time_series",
                     "intervalFactor": 1,
                     "legendFormat": "Desired CPU utilization",
+                    "refId": "B"
+                  },
+                  {
+                    "expr": "(sum(rate(container_cpu_usage_seconds_total{namespace=\"default\",pod_name=~\"podinfo.*\"}[1m]))) / (sum(kube_pod_container_resource_requests_cpu_cores{namespace=\"default\", pod=~\"podinfo.*\"}))*100",
+                    "format": "time_series",
+                    "intervalFactor": 1,
+                    "legendFormat": "Current CPU utilization",
                     "refId": "C"
+                  },
+                  {
+                    "expr": "prediction_cpu_usage_percent",
+                    "format": "time_series",
+                    "intervalFactor": 1,
+                    "legendFormat": "Predicted CPU utilization",
+                    "refId": "D"
                   }
                 ],
                 "thresholds": [],
                 "timeFrom": null,
                 "timeShift": null,
-                "title": "Panel Title",
+                "title": "CPU Usage [%]",
                 "tooltip": {
                   "shared": true,
                   "sort": 0,
