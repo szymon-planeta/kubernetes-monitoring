@@ -16,5 +16,5 @@ spec:
       target:
         kind: Service
         name: podinfo
-      metricName: prediction_cpu_usage
-      targetValue: 50000m
+      metricName: prediction_cpu_usage_percent
+      targetValue: 80
