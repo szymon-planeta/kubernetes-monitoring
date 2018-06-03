@@ -426,7 +426,7 @@ prometheus:
   #    selector: {}
   additionalScrapeConfigs:
     - job_name: "prediction"
-      scrape_interval: 15s
+      scrape_interval: 30s
       static_configs:
       - targets:
         - "predicted-cpu-exporter:9999"
