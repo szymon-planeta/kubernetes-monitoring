@@ -11,14 +11,14 @@ spec:
   minReplicas: 1
   maxReplicas: 30
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 70
-#  - type: Object
-#    object:
-#      target:
-#        kind: Service
-#        name: podinfo
-#      metricName: prediction_cpu_usage_percent
-#      targetValue: 70
+#  - type: Resource
+#    resource:
+#      name: cpu
+#      targetAverageUtilization: 70
+  - type: Object
+    object:
+      target:
+        kind: Service
+        name: podinfo
+      metricName: prediction_cpu_usage_percent
+      targetValue: 70
