@@ -636,7 +636,7 @@ grafana:
                 "dashLength": 10,
                 "dashes": false,
                 "datasource": "${DS_PROMETHEUS}",
-                "fill": 1,
+                "fill": 0,
                 "gridPos": {
                   "h": 9,
                   "w": 24,
@@ -654,7 +654,7 @@ grafana:
                   "values": false
                 },
                 "lines": true,
-                "linewidth": 1,
+                "linewidth": 3,
                 "links": [],
                 "nullPointMode": "null",
                 "percentage": false,
@@ -737,7 +737,7 @@ grafana:
                 "dashLength": 10,
                 "dashes": false,
                 "datasource": "${DS_PROMETHEUS}",
-                "fill": 1,
+                "fill": 0,
                 "gridPos": {
                   "h": 7,
                   "w": 24,
@@ -755,7 +755,7 @@ grafana:
                   "values": false
                 },
                 "lines": true,
-                "linewidth": 1,
+                "linewidth": 3,
                 "links": [],
                 "nullPointMode": "null",
                 "percentage": false,
