@@ -654,7 +654,7 @@ grafana:
                   "values": false
                 },
                 "lines": true,
-                "linewidth": 3,
+                "linewidth": 2,
                 "links": [],
                 "nullPointMode": "null",
                 "percentage": false,
@@ -698,7 +698,7 @@ grafana:
                 "thresholds": [],
                 "timeFrom": null,
                 "timeShift": null,
-                "title": "CPU Usage [milicores]",
+                "title": "CPU Usage",
                 "tooltip": {
                   "shared": true,
                   "sort": 0,
@@ -755,7 +755,7 @@ grafana:
                   "values": false
                 },
                 "lines": true,
-                "linewidth": 3,
+                "linewidth": 2,
                 "links": [],
                 "nullPointMode": "null",
                 "percentage": false,
@@ -799,7 +799,7 @@ grafana:
                 "thresholds": [],
                 "timeFrom": null,
                 "timeShift": null,
-                "title": "CPU Usage [%]",
+                "title": "CPU Usage",
                 "tooltip": {
                   "shared": true,
                   "sort": 0,
