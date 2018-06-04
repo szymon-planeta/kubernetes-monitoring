@@ -835,7 +835,7 @@ grafana:
             ],
             "refresh": "30s",
             "schemaVersion": 16,
-            "style": "dark",
+            "style": "light",
             "tags": [],
             "templating": {
               "list": [
