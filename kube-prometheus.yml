@@ -627,7 +627,7 @@ grafana:
             "gnetId": null,
             "graphTooltip": 1,
             "id": null,
-            "iteration": 1528037979222,
+            "iteration": 1528185516289,
             "links": [],
             "panels": [
               {
@@ -638,7 +638,7 @@ grafana:
                 "datasource": "${DS_PROMETHEUS}",
                 "fill": 0,
                 "gridPos": {
-                  "h": 9,
+                  "h": 8,
                   "w": 24,
                   "x": 0,
                   "y": 0
@@ -742,7 +742,7 @@ grafana:
                   "h": 7,
                   "w": 24,
                   "x": 0,
-                  "y": 9
+                  "y": 8
                 },
                 "id": 13,
                 "legend": {
@@ -817,6 +817,87 @@ grafana:
                   {
                     "format": "short",
                     "label": "CPU utilization [%]",
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                  },
+                  {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                  }
+                ]
+              },
+              {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": "${DS_PROMETHEUS}",
+                "fill": 1,
+                "gridPos": {
+                  "h": 7,
+                  "w": 24,
+                  "x": 0,
+                  "y": 15
+                },
+                "id": 15,
+                "legend": {
+                  "avg": false,
+                  "current": false,
+                  "max": false,
+                  "min": false,
+                  "show": true,
+                  "total": false,
+                  "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "links": [],
+                "nullPointMode": "null",
+                "percentage": false,
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                  {
+                    "expr": "max(kube_deployment_status_replicas{deployment=\"podinfo\",namespace=\"default\"}) without (instance, pod)",
+                    "format": "time_series",
+                    "intervalFactor": 1,
+                    "legendFormat": "Current replicas",
+                    "refId": "A"
+                  }
+                ],
+                "thresholds": [],
+                "timeFrom": null,
+                "timeShift": null,
+                "title": "Current replicas",
+                "tooltip": {
+                  "shared": true,
+                  "sort": 0,
+                  "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                  "buckets": null,
+                  "mode": "time",
+                  "name": null,
+                  "show": true,
+                  "values": []
+                },
+                "yaxes": [
+                  {
+                    "decimals": 0,
+                    "format": "short",
+                    "label": "Number of pods",
                     "logBase": 1,
                     "max": null,
                     "min": null,
@@ -913,7 +994,7 @@ grafana:
             "timezone": "browser",
             "title": "CPU",
             "uid": "PUdDZAnmz",
-            "version": 1
+            "version": 2
           },
         "inputs": [
           {
