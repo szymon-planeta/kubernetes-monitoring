@@ -18,7 +18,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-        args: ["--listen-address=:8080", "--prometheus-url=http://kube-prometheus:9090", "--mode=DES"]
+        args: ["--listen-address=:8080", "--prometheus-url=http://kube-prometheus:9090", "--mode=ARMA"]
 
 ---
 apiVersion: v1
